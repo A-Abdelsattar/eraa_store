@@ -1,3 +1,4 @@
+import 'package:eraa_store/views/on_boarding/on_boarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +17,7 @@ class AppRoot extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: child,
+          home:const OnBoardingView(),
         );
       },
     );
