@@ -1,5 +1,7 @@
 import 'package:eraa_store/blocs/auth/auth_cubit.dart';
+import 'package:eraa_store/core/utils/navigation.dart';
 import 'package:eraa_store/src/app_colors.dart';
+import 'package:eraa_store/views/auth/login_view.dart';
 import 'package:eraa_store/views/auth/widgets/custom_button.dart';
 import 'package:eraa_store/views/auth/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +44,9 @@ class RegisterView extends StatelessWidget {
                         children: [
                           const Text('Already have an account? '),
                           TextButton(
-                              onPressed: () {}, child: const Text('Log in'))
+                              onPressed: () {
+                                AppNavigator.customNavigator(context: context, screen: LoginView(), finish: true);
+                              }, child: const Text('Log in'))
                         ],
                       ),
                     ),

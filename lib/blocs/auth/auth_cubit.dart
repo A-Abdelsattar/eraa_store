@@ -54,4 +54,28 @@ class AuthCubit extends Cubit<AuthState> {
       emit(RegisterErrorState(error));
     });
   }
+
+
+  login(){
+    emit(LoginLoadingState());
+    DioHelper.postData(url: EndPoint.login, data:{
+      'email':emailController.text,
+      'password':passwordController.text,
+    } ).then((value){
+      authModel=AuthModel.fromJson(value.data);
+      SharedPreferenceHelper.saveData(key: SharedPreferencesKeys.token, value: authModel!.data!.token);
+      emit(LoginSuccessState());
+      emailController.clear();
+      passwordController.clear();
+
+    }).catchError((error){
+      print(error.toString());
+      if(error is DioException){
+        print(error.response?.data.toString());
+        ToastConfig.showToast(msg: 'Error${error.response?.data['errors'].toString()}', toastStates: ToastStates.error);
+      }
+      emit(LoginErrorState(error));
+    });
+  }
+
 }
