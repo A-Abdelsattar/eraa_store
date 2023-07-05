@@ -8,7 +8,7 @@ class DioHelper {
   static init(){
     dio=Dio(
         BaseOptions(
-          baseUrl: baseUrl,
+          baseUrl: EndPoint.baseUrl,
           receiveDataWhenStatusError: true,
         )
     );
@@ -37,7 +37,6 @@ class DioHelper {
   }) {
 
     dio!.options.headers = {
-
       'content-type':'application/json',
       'authorization': 'Bearer $token',
     };
