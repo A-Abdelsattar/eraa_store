@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
@@ -10,7 +9,6 @@ import 'package:eraa_store/services/sp_helper/sp_helper.dart';
 import 'package:eraa_store/services/sp_helper/sp_keys.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:meta/meta.dart';
 import 'package:eraa_store/services/dio_helper/endPoint.dart';
 
@@ -46,12 +44,12 @@ class AuthCubit extends Cubit<AuthState> {
       passwordConfirmationController.clear();
 
     }).catchError((error){
+      emit(RegisterErrorState(error.toString()));
       print(error.toString());
-      if(error is DioException){
-        print(error.response?.data.toString());
-        ToastConfig.showToast(msg: 'Error${error.response?.data['errors'].toString()}', toastStates: ToastStates.error);
-      }
-      emit(RegisterErrorState(error));
+      // if(error is DioException){
+      //   print(error.response?.data.toString());
+      //   ToastConfig.showToast(msg: '${error.response?.data['errors'].toString()}', toastStates: ToastStates.error);
+      // }
     });
   }
 
@@ -69,12 +67,12 @@ class AuthCubit extends Cubit<AuthState> {
       passwordController.clear();
 
     }).catchError((error){
+      emit(LoginErrorState(error.toString()));
       print(error.toString());
-      if(error is DioException){
-        print(error.response?.data.toString());
-        ToastConfig.showToast(msg: 'Error${error.response?.data['errors'].toString()}', toastStates: ToastStates.error);
-      }
-      emit(LoginErrorState(error));
+      // if(error is DioException){
+      //   print(error.response?.data.toString());
+      //   ToastConfig.showToast(msg: '${error.response?.data['message'].toString()}', toastStates: ToastStates.error);
+      // }
     });
   }
 

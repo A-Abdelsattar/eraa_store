@@ -1,4 +1,5 @@
 import 'package:eraa_store/core/utils/navigation.dart';
+import 'package:eraa_store/core/utils/styles.dart';
 import 'package:eraa_store/src/app_colors.dart';
 import 'package:eraa_store/views/auth/register_view.dart';
 import 'package:flutter/material.dart';
@@ -22,21 +23,15 @@ class OnBoardingView extends StatelessWidget {
                 height: 300.h,
               ),
               SizedBox(height:30.h),
-              Text(
-                'Change Your perspective in style',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 35.sp,
-                ),
+            const  Text(
+                'كل ما تحتاج اليه في مكان واحد',
+                style: Styles.textStyle40,
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 10.h,),
               Text(
-                'Change The Quality Of Your Appearance With EraaStore Now!',
-                style: TextStyle(
-                  color: AppColors.kPrimarySilverColor,
-                  fontSize: 20.sp,
-                ),
+                'اختر الجهاز الذي يناسبك و سنقوم بتوصيله اليك في اسرع وقت!',
+                style: Styles.textStyle20.copyWith(color: AppColors.kPrimarySilverColor),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 50.h,),
@@ -53,8 +48,8 @@ class OnBoardingView extends StatelessWidget {
                     // margin: EdgeInsets.symmetric(vertical: 5.h),
                     // decoration: BoxDecoration(
                     //     borderRadius: BorderRadius.circular(20.r), ),
-                    child:const Center(
-                      child: Text('Get Started',style: TextStyle(color: AppColors.klightSilver,fontSize: 20,fontWeight: FontWeight.bold),),
+                    child: Center(
+                      child: Text('ابدأ الأن',style: Styles.textStyle20.copyWith(color: Colors.white),),
                     ),
                   ),
                 ),

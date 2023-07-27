@@ -28,11 +28,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding:  EdgeInsets.symmetric(vertical: 8.0.h,horizontal: 15.w),
       child: TextFormField(
+
         validator: (value) {
           if (value!.isEmpty) {
-            return '${widget.label} must not be empty';
+            return '${widget.label} مطلوب';
           }
         },
         enabled: widget.edit,
@@ -43,6 +44,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 : TextInputType.name
             : TextInputType.none,
         decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical:10.h),
             focusedBorder:const OutlineInputBorder(
               borderSide:
                    BorderSide(color: AppColors.kPrimaryColor, width: 2.0),
